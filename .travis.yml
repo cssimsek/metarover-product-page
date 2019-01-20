@@ -1,11 +1,14 @@
-language: node.js
+language: node_js
 node_js:
   - "6"
 install:
+  - cd functions
   - npm init -f
-  - npm install -g firebase-tools
-  - npm install -g firebase-functions@2.1.0
-  - npm install -g firebase-admin@6.0.0
+  - npm install firebase-tools
+  - npm install firebase-functions@2.1.0
+  - npm install firebase-admin@6.0.0
+  - npm install
+  - cd ..
 script:
   - firebase deploy --token $FIREBASE_TOKEN
 after_success:
