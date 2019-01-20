@@ -2,7 +2,13 @@ language: node_js
 node_js:
   - "6"
 install:
-  - npm install -g firebase-tools
+  - npm init -f
+  - npm install firebase-tools@5.8.0
+  - npm install firebase-functions@2.1.0
+  - npm install firebase-admin@6.0.0
+  - npm install consolidate@0.14.5
+  - npm install express@4.16.4
+  - npm install handlebars@4.0.12
 script:
   - firebase deploy --token $FIREBASE_TOKEN
 after_success:
