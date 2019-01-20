@@ -3,7 +3,7 @@ node_js:
   - "6"
 install:
   - npm init -f
-  - npm install firebase-tools@5.8.0
+  - npm install firebase-tools@latest
   - npm install firebase-functions@2.1.0
   - npm install firebase-admin@6.0.0
   - npm install consolidate@0.14.5
