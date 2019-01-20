@@ -1,0 +1,8 @@
+.firebase
+functions/node_modules
+*.jpg
+*.gif
+*.png
+*.svg
+*.ico
+.DS_Store
