@@ -1,6 +1,6 @@
 language: node.js
 node_js:
-  - "6.0"
+  - "6"
 script:
   - echo "Deploying to Firebase Hosting"
 install:
