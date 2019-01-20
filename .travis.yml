@@ -9,4 +9,5 @@ install:
   - npm install -g firebase-functions@2.1.0
   - npm install -g firebase-admin@6.0.0
 after_success:
+  - cd ..
   - firebase deploy --token $FIREBASE_TOKEN
