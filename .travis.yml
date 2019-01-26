@@ -3,8 +3,6 @@ node_js:
   - "6"
 before-script:
   - cd functions
-install:
-  - npm init -f
   - npm install
 script:
   - firebase deploy --token $FIREBASE_TOKEN
