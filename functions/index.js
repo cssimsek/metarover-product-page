@@ -1,8 +1,6 @@
 const functions = require('firebase-functions');
 const express = require('express');
 const engines = require('consolidate');
-const path = require('path');
-let appRoot = path.resolve(__dirname);
 
 const app = express();
 
@@ -13,7 +11,7 @@ app.set('view engine', 'hbs');
 let year = (new Date()).getFullYear();
 let copyText = "Copyright © 2017"+(year>2017?"-"+year:"")+" MetaRover by Cem Simsek";
 
-let routingTable = {'/':'index','/premium':'premium','/404':'404','/demo-videos':'demo-videos'};
+let routingTable = {'/':'index','/404':'404','/demo-videos':'demo-videos'};
 let paths = Object.keys(routingTable);
 
 /* 
@@ -25,10 +23,9 @@ exports.app = functions.https.onRequest(app);
 
 //Define specific routes
 app.get(paths, (request, response) => {
-        //query parameter is an issue that needs fixing
-        //"/premium?bla=bla;do=do&".match(/\?{1}[a-zA-Z\=\;\&]+/i);
-        var originalUrl = request.originalUrl;
-        var oUrl = request.originalUrl.replace(/[\?|\#]{1}.*/i,"");
+        let originalUrl = request.originalUrl;
+        //Strip url of query params for routing purposes
+        let oUrl = originalUrl.replace(/[\?|\#]{1}.*/i,"");
         if(originalUrl in routingTable){
             if(originalUrl=="/404")response.status(404);
             response.set({
