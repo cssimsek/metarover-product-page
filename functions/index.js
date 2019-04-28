@@ -1,9 +1,6 @@
 const functions = require('firebase-functions');
 const express = require('express');
 const engines = require('consolidate');
-const path = require('path');
-const url = require('url');
-let appRoot = path.resolve(__dirname);
 
 const app = express();
 
@@ -27,7 +24,7 @@ exports.app = functions.https.onRequest(app);
 //Define specific routes
 app.get(paths, (request, response) => {
         let originalUrl = request.originalUrl;
-        //Strip url of query params for internal reference
+        //Strip url of query params for routing purposes
         let oUrl = originalUrl.replace(/[\?|\#]{1}.*/i,"");
         if(originalUrl in routingTable){
             if(originalUrl=="/404")response.status(404);
