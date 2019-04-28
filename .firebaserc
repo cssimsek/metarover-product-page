@@ -1,5 +1,6 @@
 {
   "projects": {
-    "staging": "metarover-add-on-lp"
+    "staging": "metarover-add-on-lp",
+    "default": "metarover-add-on-lp"
   }
 }
