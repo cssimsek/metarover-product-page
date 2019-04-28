@@ -6,3 +6,4 @@ functions/node_modules
 *.svg
 *.ico
 .DS_Store
+firebase-debug.log
