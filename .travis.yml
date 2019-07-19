@@ -3,6 +3,7 @@ node_js:
   - "10"
 before_script:
   - cd functions
+  - npm install firebase-functions@latest firebase-admin@latest --save
   - npm install -g firebase-tools@latest
   - npm install --save --save-exact
   - cd ..
