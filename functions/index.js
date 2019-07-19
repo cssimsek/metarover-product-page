@@ -11,7 +11,7 @@ app.set('view engine', 'hbs');
 let year = (new Date()).getFullYear();
 let copyText = "Copyright © 2017"+(year>2017?"-"+year:"")+" MetaRover by Cem Simsek";
 
-let routingTable = {'/':'index','/404':'404','/demo-videos':'demo-videos'};
+let routingTable = {'/':'index','/404':'404','/demo-videos':'demo-videos','/privacy-policy':'privacy-policy'};
 let paths = Object.keys(routingTable);
 
 /* 
