@@ -7,6 +7,7 @@ before_script:
   - npm install --save --save-exact
   - cd ..
 script:
+  - firebase use default
   - firebase deploy --token $FIREBASE_TOKEN
 after_success:
   - echo "Deploy to Firebase succeeded"
