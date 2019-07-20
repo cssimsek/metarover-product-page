@@ -19,7 +19,8 @@ let routingTable = {
     '/': 'index',
     '/404': '404',
     '/demo-videos': 'demo-videos',
-    '/privacy-policy': 'privacy-policy'
+    '/privacy-policy': 'privacy-policy',
+    '/report-issue': 'report-issue'
 };
 let paths = Object.keys(routingTable);
 

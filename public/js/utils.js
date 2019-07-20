@@ -1,3 +1,1 @@
-Utils = function(){
-    
-}
+Utils = function(){}
