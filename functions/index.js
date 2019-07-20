@@ -61,7 +61,6 @@ app.get(paths, (request, response) => {
         response.locals.copyrightText = JSON.stringify(copyText);
         response.render(routingTable[oUrl]);
     } else {
-        //response.redirect('/404');
         response.status(404);
         response.set({
             'X-Robots-Tag': 'noindex',

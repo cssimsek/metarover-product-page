@@ -295,6 +295,9 @@
       animation: none !important;
        background: unset;
     }
+    .portfolio-navigation-row {
+      display: none;
+    }
   }
   
   
