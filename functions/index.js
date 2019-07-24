@@ -40,7 +40,6 @@ app.get(paths, (request, response) => {
     if (originalUrl in routingTable) {
         if (originalUrl == "/404") response.status(404);
         response.set({
-            'X-Robots-Tag': 'noindex',
             'Cache-Control': 'public, max-age=300, s-maxage=600'
         });
         response.locals.copyrightText = JSON.stringify(copyText);
@@ -48,7 +47,6 @@ app.get(paths, (request, response) => {
     } else if (oUrl.indexOf('/metarover-add-on-lp/us-central1/app')!=-1){
         oUrl = oUrl.replace('/metarover-add-on-lp/us-central1/app','');
         response.set({
-            'X-Robots-Tag': 'noindex',
             'Cache-Control': 'public, max-age=300, s-maxage=600'
         });
         response.locals.copyrightText = JSON.stringify(copyText);
@@ -56,7 +54,6 @@ app.get(paths, (request, response) => {
 
     }else if (oUrl in routingTable) {
         response.set({
-            'X-Robots-Tag': 'noindex',
             'Cache-Control': 'public, max-age=300, s-maxage=600'
         });
         response.locals.copyrightText = JSON.stringify(copyText);
