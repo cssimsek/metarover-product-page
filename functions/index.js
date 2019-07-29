@@ -20,7 +20,8 @@ let routingTable = {
     '/404': '404',
     '/demo-videos': 'demo-videos',
     '/privacy-policy': 'privacy-policy',
-    '/report-issue': 'report-issue'
+    '/report-issue': 'report-issue',
+    '/sitemap.xml' : 'sitemap'
 };
 let paths = Object.keys(routingTable);
 
@@ -37,25 +38,22 @@ app.get(paths, (request, response) => {
     //Strip url of query params for routing purposes
     let oUrl = originalUrl.replace(/[\?|\#]{1}.*/i, "");
     console.log(oUrl);
+    let responseHeader = {
+        'Cache-Control': 'public, max-age=300, s-maxage=600'
+    };
+    if(/sitemap\.xml$/i.test(oUrl))responseHeader['Content-Type']='application/xml';
     if (originalUrl in routingTable) {
-        if (originalUrl == "/404") response.status(404);
-        response.set({
-            'Cache-Control': 'public, max-age=300, s-maxage=600'
-        });
+        if (originalUrl == '/404') response.status(404);
+        response.set(responseHeader);
         response.locals.copyrightText = JSON.stringify(copyText);
         response.render(routingTable[originalUrl]);
-    } else if (oUrl.indexOf('/metarover-add-on-lp/us-central1/app')!=-1){
-        oUrl = oUrl.replace('/metarover-add-on-lp/us-central1/app','');
-        response.set({
-            'Cache-Control': 'public, max-age=300, s-maxage=600'
-        });
+    } else if (oUrl.indexOf('/metarover-add-on-lp/us-central1/app') != -1) {
+        oUrl = oUrl.replace('/metarover-add-on-lp/us-central1/app', '');
+        response.set(responseHeader);
         response.locals.copyrightText = JSON.stringify(copyText);
         response.render(routingTable[oUrl]);
-
-    }else if (oUrl in routingTable) {
-        response.set({
-            'Cache-Control': 'public, max-age=300, s-maxage=600'
-        });
+    } else if (oUrl in routingTable) {
+        response.set(responseHeader);
         response.locals.copyrightText = JSON.stringify(copyText);
         response.render(routingTable[oUrl]);
     } else {
