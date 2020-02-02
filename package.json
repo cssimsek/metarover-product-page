@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "fbh": "firebase serve --only hosting"
+      }
+}
