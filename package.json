@@ -1,5 +1,6 @@
 {
     "scripts": {
-        "fbh": "firebase serve --only hosting"
+        "fbh": "firebase serve --only hosting",
+        "fbemulate": "firebase emulators:start"
       }
 }
