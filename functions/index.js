@@ -33,7 +33,7 @@ exports.app = functions.https.onRequest(app);
 
 
 //Define specific routes
-app.get(paths, (request, response) => {
+app.get('*', (request, response) => {
     let originalUrl = request.originalUrl;
     //Strip url of query params for routing purposes
     let oUrl = originalUrl.replace(/[\?|\#]{1}.*/i, "");
@@ -68,7 +68,7 @@ app.get(paths, (request, response) => {
 });
 
 //Redirect all else to 404
-
+/*
 app.get('*', (request, response) => {
     response.status(404);
     response.set({
@@ -78,3 +78,4 @@ app.get('*', (request, response) => {
     response.locals.copyrightText = JSON.stringify(copyText);
     response.render(routingTable['/404']);
 });
+*/
