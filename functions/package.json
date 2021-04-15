@@ -9,6 +9,7 @@
   },
   "private": true,
   "devDependencies": {
+    "@firebase/util": "^1.0.0",
     "consolidate": "^0.14.5",
     "express": "^4.17.1",
     "firebase": "^8.4.1",

@@ -1,11 +1,6 @@
 const functions = require('firebase-functions');
 const express = require('express');
 const engines = require('consolidate');
-
-//const admin = require('firebase-admin');
-//const adminApp = admin.initializeApp();
-
-
 const app = express();
 
 app.engine('hbs', engines.handlebars);
